@@ -5,11 +5,10 @@ const config = require('./config.json')
 
 const bot = mineflayer.createBot({
   host: config.host,
-  //port: config.port,
+  port: config.port,
   username: config.username,
-  //password: config.password,
-  verbose: true,
-  version: config.version,
+  password: config.password,
+  version: config.version
 })
 console.log("Minecraft Selfbot made by LightWarp. http://github.com/LightWarp/Minecraft-Selfbot for updates.")
 var rl = readline.createInterface({

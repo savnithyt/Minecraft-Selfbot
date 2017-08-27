@@ -1,6 +1,7 @@
 {
-    "host": "play.totalfreedom.me",
+    "host": "play.unraveledmc.com",
     "port": "25565",
-    "username": "LightWarpBOT",
-    "version": "1.11.2"
+    "username": "email",
+    "password": "wew",
+    "version": "1.9"
 }
