@@ -1,8 +1,6 @@
 # Minecraft-Selfbot
 A Minecraft Selfbot written in NodeJS and with the Mineflayer/Mineflayer-Navigate libraries.
 
-Only works on Cracked Servers at the moment.
-
 Tested on play.totalfreedom.me
 
 
