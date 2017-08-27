@@ -94,7 +94,7 @@ rl.on('line', function (consolecmd) {
   if (consolecmd.startsWith("chat ")) {
     var chattosay = (consolecmd.substring(5)).trim()
     if (chattosay != null) {
-      bot.chat("/"+chattosay)
+      bot.chat(chattosay)
       console.log("Bot said in chat: " + chattosay)
     } else {
     console.log("You need to specify a command")
