@@ -11,7 +11,7 @@ const bot = mineflayer.createBot({
   verbose: true,
   version: config.version,
 })
-
+console.log("Minecraft Selfbot made by LightWarp. http://github.com/LightWarp/Minecraft-Selfbot for updates.")
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -83,6 +83,10 @@ rl.on('line', function (consolecmd) {
       console.log("Could not find player.")
       }
   }
+  if (consolecmd.startsWith('say ')){
+    bot.chat(consolecmd.substring(4))
+    console.log("Message sent ingame.")
+  }
   if (consolecmd.startsWith("cmd ")) {
     var cmdtoexec = (consolecmd.substring(4)).trim()
     if (cmdtoexec != null) {
@@ -90,21 +94,6 @@ rl.on('line', function (consolecmd) {
       console.log("Command Executed.")
     } else {
     console.log("You need to specify a command")
-  }
-  if (consolecmd.startsWith("chat ")) {
-    var chattosay = (consolecmd.substring(5)).trim()
-    if (chattosay != null) {
-      bot.chat(chattosay)
-      console.log("Bot said in chat: " + chattosay)
-    } else {
-    console.log("You need to specify a command")
-    }
-  }
-  if (consolecmd == 'health') {
-    console.log("I am at " + bot.health + "/20 health.")
-  }
-  if (consolecmd == 'hunger') {
-    console.log("I am at " + bot.food + "/20 hunger.")
   }
   }
   rl.prompt(); 
