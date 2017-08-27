@@ -66,7 +66,7 @@ rl.on('line', function (consolecmd) {
       var attacktarg = bot.players[plnam].entity;
       if (attacktarg != null) {
         bot.attack(attacktarg)
-        bot.chat("Attacking " + plnam,"info")
+        console.log("Attacking " + plnam,"info")
       } else {
         Console.log("ERROR: Could not find player")
       }
