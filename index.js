@@ -55,7 +55,7 @@ rl.on('line', function (consolecmd) {
   if (consolecmd.startsWith('goto ')){
       clearInterval(foloutId)
       clearInterval(attoutId)
-      var l_m = message
+      var l_m = consolecmd
       var nav_player = l_m.substring(5)
       var target = bot.players[nav_player.trim()].entity;
       bot.navigate.to(target.position);
