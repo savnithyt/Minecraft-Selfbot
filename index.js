@@ -121,3 +121,7 @@ bot.on('death', function() {
     clearInterval(attoutId)
     bot.navigate.stop();
 });
+
+bot.on('login', function() {
+    bot.chat("Hello I am a BOT.")
+});
