@@ -26,6 +26,9 @@ rl.on('line', function (consolecmd) {
   if (consolecmd == 'info') {
     console.log('A Minecraft Selfbot Created by LightWarp. https://github.com/LightWarp/Minecraft-Selfbot')
   }
+  if (consolecmd == 'help') {
+    console.log('My commands are:\n follow <player> Follows the mentioned player around.\n attack <player> Attacks the mentioned player.\n goto <player> Navigates to the mentioned players Location.\n kill <player> Tries to Kill the mentioned player.\n cmd <command> Executes a command ingame (use without the "/" ofcourse)\n say <message> Sends a message to the Ingame chat.')
+  }
   if (consolecmd == 'shutdown'){
     bot.quit()
     rl.close(); 
