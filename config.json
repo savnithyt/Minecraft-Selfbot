@@ -4,5 +4,6 @@
     "username": "email",
     "password": "wew",
     "version": "1.9",
-    "login": "I am on!"
+    "login": "Login message here",
+    "death": "Death Message here"
 }
