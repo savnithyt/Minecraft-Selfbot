@@ -119,7 +119,7 @@ bot.on('entityGone', function(entity) {
     }
 });
 bot.on('death', function() {
-    console.log("I died...")
+    console.log(config.death)
     clearInterval(foloutId)
     clearInterval(attoutId)
     bot.navigate.stop();
