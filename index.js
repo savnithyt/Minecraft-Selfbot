@@ -126,5 +126,5 @@ bot.on('death', function() {
 });
 
 bot.on('login', function() {
-    bot.chat("Hello I am a BOT.")
+    bot.chat(config.login)
 });
