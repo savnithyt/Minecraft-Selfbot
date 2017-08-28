@@ -1,7 +1,7 @@
 # Minecraft-Selfbot
 A Minecraft Selfbot written in NodeJS and with the Mineflayer/Mineflayer-Navigate libraries.
 
-A project started by LightWarp and contributed by Raduino and Savnith
+A project started by LightWarp and contributed by Raduino 
 
 Tested on play.totalfreedom.me
 
