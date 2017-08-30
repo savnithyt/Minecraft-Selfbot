@@ -49,7 +49,7 @@ rl.on('line', function (consolecmd) {
       global.target = bot.players[plnam].entity;
       if (global.target != null) {
       foloutId = setInterval(followTarget, 1000);
-      console.log("Started following " + plnam)
+      bot.chat("Started following " + plnam + "!")
       } else {
         console.log("Could not find player.")
       }
@@ -61,7 +61,7 @@ rl.on('line', function (consolecmd) {
       var nav_player = l_m.substring(5)
       var target = bot.players[nav_player.trim()].entity;
       bot.navigate.to(target.position);
-      console.log("Heading to position!")
+      bot.chat("Teleporting...")
   }
   if (consolecmd.startsWith('attack ')){
       var plnam = (consolecmd.substring(7)).trim()
@@ -70,7 +70,7 @@ rl.on('line', function (consolecmd) {
         bot.attack(attacktarg)
         console.log("Attacking " + plnam,"info")
       } else {
-        Console.log("ERROR: Could not find player")
+        console.log("ERROR: Could not find player")
       }
   }
   if (consolecmd.startsWith('kill ')){
@@ -80,7 +80,7 @@ rl.on('line', function (consolecmd) {
       if (global.target != null) {
         foloutId = setInterval(followTarget, 1000);
         attoutId = setInterval(attackTarget, 500);
-        console.log("Attempting to kill " + plnam)
+        bot.chat("Attempting to kill " + plnam + "!")
       } else {
       console.log("Could not find player.")
       }
