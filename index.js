@@ -22,28 +22,30 @@ var rl = readline.createInterface({
 rl.setPrompt('Command > ');
 rl.prompt();
 
+var pr = config.prefix;
+
 var follow = false
 var foloutId = undefined
 var attoutId = undefined
 navigatePlugin(bot);
 
 function chatEvent(username, message) {
-	if (message.startsWith('bot.info')){
+	if (message == (pr + 'info')){
         bot.chat('Minecraft Selfbot by LightWarp. https://github.com/LightWarp/Minecraft-Selfbot')
     }
-    if (message.startsWith('bot.advice')){
+    if (message == (pr + 'advice')){
         var advice_text = fs.readFileSync("./advice.txt", {"encoding": "utf-8"});
         var lines = advice_text.split('\n');
         var advicetosend =lines[Math.floor(Math.random() * lines.length)];
         bot.chat(advicetosend)
     }
-    if (message.startsWith('bot.quote')){
+    if (message == (pr + 'quote')){
         var quotes = fs.readFileSync("./quotes.txt", {"encoding": "utf-8"});
         var lines = quotes.split('\n');
         var quotetosend =lines[Math.floor(Math.random() * lines.length)];
         bot.chat(quotetosend)
     }
-    if (message.startsWith('bot.ask')){
+    if (message.startsWith(pr + 'ask')){
         var answers = [
             'Maybe.', 'Lol no.', 'I really hope so.', 'Not in your wildest dreams.',
             'There is a good chance.', 'Quite likely.', 'I think so.', 'I hope not.',
