@@ -1,6 +1,7 @@
 var mineflayer = require('mineflayer');
 var readline = require("readline");
 var navigatePlugin = require('mineflayer-navigate')(mineflayer);
+var fs = require('fs')
 const config = require('./config.json')
 
 const bot = mineflayer.createBot({
@@ -10,6 +11,9 @@ const bot = mineflayer.createBot({
   password: config.password,
   version: config.version
 })
+
+bot.chatAddPattern(/^.* <(.*)> (.*)$/, 'tagchat', 'Tag Chat');
+
 console.log("Minecraft Selfbot made by LightWarp. http://github.com/LightWarp/Minecraft-Selfbot for updates.")
 var rl = readline.createInterface({
   input: process.stdin,
@@ -22,6 +26,44 @@ var follow = false
 var foloutId = undefined
 var attoutId = undefined
 navigatePlugin(bot);
+
+function chatEvent(username, message) {
+	if (message.startsWith('bot.info')){
+        bot.chat('Minecraft Selfbot by LightWarp. https://github.com/LightWarp/Minecraft-Selfbot')
+    }
+    if (message.startsWith('bot.advice')){
+        var advice_text = fs.readFileSync("./advice.txt", {"encoding": "utf-8"});
+        var lines = advice_text.split('\n');
+        var advicetosend =lines[Math.floor(Math.random() * lines.length)];
+        bot.chat(advicetosend)
+    }
+    if (message.startsWith('bot.quote')){
+        var quotes = fs.readFileSync("./quotes.txt", {"encoding": "utf-8"});
+        var lines = quotes.split('\n');
+        var quotetosend =lines[Math.floor(Math.random() * lines.length)];
+        bot.chat(quotetosend)
+    }
+    if (message.startsWith('bot.ask')){
+        var answers = [
+            'Maybe.', 'Lol no.', 'I really hope so.', 'Not in your wildest dreams.',
+            'There is a good chance.', 'Quite likely.', 'I think so.', 'I hope not.',
+            'I hope so.', 'Wtf no!', 'Fuhgeddaboudit.', 'Ahaha! Really?!?', 'Pfft.',
+            'Sorry, bby.', 'fuck yes.', 'Hell to the no.', 'ehhhhhh, i dont know.',
+            'The future is uncertain.', 'I would rather not say.', 'Who cares?',
+            'Possibly.', 'Never, ever, ever.', 'There is a small chance.', 'Yes!'
+        ];
+        var answer = answers[Math.floor(Math.random() * answers.length)];
+        bot.chat(answer);
+    }
+}
+
+bot.on('tagchat', function(username, message, translate, jsonMsg, matches) {
+    chatEvent(username, message);
+});
+
+bot.on('chat', function(username, message) {
+    chatEvent(username, message);
+});
 rl.on('line', function (consolecmd) {
   if (consolecmd == 'info') {
     console.log('A Minecraft Selfbot Created by LightWarp. https://github.com/LightWarp/Minecraft-Selfbot')

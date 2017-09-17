@@ -1,9 +1,9 @@
 {
-    "host": "play.unraveledmc.com",
+    "host": "play.totalfreedom.me",
     "port": "25565",
-    "username": "email",
-    "password": "wew",
-    "version": "1.9",
-    "login": "Login message here",
-    "death": "Death Message here"
+    "username": "no",
+    "password": "u",
+    "version": "1.12.1",
+    "login": "Minecraft Selfbot 1.2 DEV by LightWarp",
+    "death": "I Died..."
 }
